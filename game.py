@@ -22,10 +22,10 @@ class Cuatroenlinea():
             self.jugada -= 1
             self.col = 0
             self.letter= '-'
-            return ExceedTableException()
+            raise ExceedTableException()
 
         if self.jugada== 64:
-            return DrawException()
+            raise DrawException()
 
 
             
@@ -37,7 +37,7 @@ class Cuatroenlinea():
             
         if row1 == 0:
             self.jugada -= 1
-            return MaxFichasException()
+            raise MaxFichasException()
         
                 
         
