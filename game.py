@@ -23,6 +23,11 @@ class Cuatroenlinea():
             self.col = 0
             self.letter= '-'
             return ExceedTableException()
+
+        if self.jugada== 64:
+            return DrawException()
+
+
             
         for i in range(8):
             if self.board[i][col] == '-':
@@ -34,17 +39,7 @@ class Cuatroenlinea():
             self.jugada -= 1
             return MaxFichasException()
         
-        
-        
-
-            
-        
-            
-        
-
-        
-        
-        
+                
         
         if self.jugada == 1:
             self.token = letter
@@ -105,12 +100,10 @@ class Cuatroenlinea():
         for column in range (8):
             for roww in range (5):
             
-
-                
                 if self.board[roww][column-1] == self.board[roww+1][column-1] == self.board[roww+2][column-1] == self.board[roww+3][column-1]  == 'X':
                     self.win ='Yes'
                 
-                if self.board[roww-1][column] == self.board[roww][column] == self.board[roww+1][column] == self.board[roww+2][column]  == '0':
+                if self.board[roww][column-1] == self.board[roww+1][column-1] == self.board[roww+2][column-1] == self.board[roww+3][column-1]  == '0':
                     self.win ='Yes'
 
     def verify_incl1(self):

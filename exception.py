@@ -4,7 +4,7 @@ class MaxFichasException(Exception):
 class SamePlayerException(Exception):
     pass
 
-class GameOverException(Exception):
+class DrawException(Exception):
     pass
 
 class NoLetterException(Exception):
@@ -12,4 +12,8 @@ class NoLetterException(Exception):
 
 class ExceedTableException(Exception):
     pass
+
+class GameOverException(Exception):
+    pass
+
 

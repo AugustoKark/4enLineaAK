@@ -20,10 +20,15 @@ def play(game):
         if game.jugada ==1:
             lettera='X'
         if game.jugada %2==0:
-            lettera='O'
+            lettera='0'
         else:
             lettera='X'
 
+
+        if int(colum_ingreso)>= 8:
+            
+            print("No se pueden ingresar mas fichas en esta columna")
+            raise ExceedTableException()
 
         
         
@@ -37,9 +42,7 @@ def play(game):
         print(game.player)
         print(game.win)
         return True
-    except MaxFichasException:
-        print("No se pueden ingresar mas fichas en esta columna")
-        return True
+   
 
         
         
