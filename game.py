@@ -28,6 +28,10 @@ class Cuatroenlinea():
             self.jugada -= 1
             return MaxFichasException()
         
+        if letter != "x" and letter != "0":
+            self.jugada -= 1
+            return NoLetterException()
+        
         if self.jugada == 1:
             self.token = letter
         

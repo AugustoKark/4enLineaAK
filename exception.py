@@ -6,3 +6,7 @@ class SamePlayerException(Exception):
 
 class GameOverException(Exception):
     pass
+
+class NoLetterException(Exception):
+    pass
+
