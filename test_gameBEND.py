@@ -1,6 +1,7 @@
 import unittest
 from game import Cuatroenlinea
 from exception import *
+from parameterized import parameterized
 
 
 
@@ -117,6 +118,7 @@ class TestCuatroenlinea(unittest.TestCase):
         ['X', '-', '-', '-', '-', '-', '-', '-'], 
         ['0', '-', '-', '-', '-', '-', '-', '-']])
 
+    
     def test_fourth_moveX2(self):
         machine = Cuatroenlinea()
         machine.set(0,'0')
@@ -223,6 +225,29 @@ class TestCuatroenlinea(unittest.TestCase):
         ['X', '-', '-', '-', '-', '-', '-', '-'], 
         ['X', '-', '-', '-', '-', '-', '-', '-'], 
         ['0', '0', '0', '-', '-', '0', '-', '-']])
+    
+    def test_victoryver1(self):
+        machine = Cuatroenlinea()
+        machine.set(7,'0')
+        machine.set(0,'X')
+        machine.set(1,'0')
+        machine.set(0,'X')
+        machine.set(2,'0')
+        machine.set(0,'X')
+        machine.set(5,'0')
+        machine.set(0,'X')
+
+        self.assertEqual(machine.jugada,8)
+        self.assertEqual(machine.win,'Yes')
+        self.assertEqual(machine.board ,
+        [['-', '-', '-', '-', '-', '-', '-', '-'],
+        ['-', '-', '-', '-', '-', '-', '-', '-'], 
+        ['-', '-', '-', '-', '-', '-', '-', '-'], 
+        ['-', '-', '-', '-', '-', '-', '-', '-'], 
+        ['X', '-', '-', '-', '-', '-', '-', '-'], 
+        ['X', '-', '-', '-', '-', '-', '-', '-'], 
+        ['X', '-', '-', '-', '-', '-', '-', '-'], 
+        ['X', '0', '0', '-', '-', '0', '-', '0']])
 
 
     def test_victoryincl(self):

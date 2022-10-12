@@ -10,3 +10,6 @@ class GameOverException(Exception):
 class NoLetterException(Exception):
     pass
 
+class ExceedTableException(Exception):
+    pass
+

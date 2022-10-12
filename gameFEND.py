@@ -3,45 +3,72 @@ from exception import *
 
 def main():
     game = Cuatroenlinea()
+    
     game.jugada=0
     playing = True
     
     while playing:
-        #printboard(game.board)
         playing = play(game)
-        
 
 
 def play(game):
     try:
         colum_ingreso =(input("INGRESE una columna: "))
-        if colum_ingreso=="q" or "Q":
+        if colum_ingreso=="q":
             return False
-        game.jugada+=1
-        letter_ingreso= input("Ingrese X o 0: ")
-        game.token = (letter_ingreso)
+        
+        if game.jugada ==1:
+            lettera='X'
+        if game.jugada %2==0:
+            lettera='O'
+        else:
+            lettera='X'
 
-        game.col= int(colum_ingreso)
-        game.set(game.col, game.token)
+
+        
+        
+        game.set(int(colum_ingreso),lettera)
+        print_board(game.board)
+        print("Jugada: ",game.jugada)
+
+        if game.win == 'Yes':
+            print("Player {} wins!".format(game.player))
+            return False
+        print(game.player)
+        print(game.win)
+        return True
+    except MaxFichasException:
+        print("No se pueden ingresar mas fichas en esta columna")
+        return True
+
+        
+        
 
     except ValueError:
         print("Valor no valido")
+        
     except SamePlayerException:
         print("No puedes jugar con el mismo jugador")
+        
     except MaxFichasException:
         print("No puedes poner mas fichas en dicha columna")
-    except GameOverException:
+        
+    except ExceedTableException:
         print("Te has excedido de la tabla")
-    except NoLetterException:
-        print("No has ingresado una letra valida")
+        
+    
 
     
     print_board(game.board)
+    
  
     if game.win == 'Yes':
         print("Ganaste")
         return False
+        
     return True
+
+    
 
 def print_board(board):
     rows = 8

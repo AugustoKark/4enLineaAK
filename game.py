@@ -28,9 +28,12 @@ class Cuatroenlinea():
             self.jugada -= 1
             return MaxFichasException()
         
-        if letter != "x" and letter != "0":
-            self.jugada -= 1
-            return NoLetterException()
+        if col > 7:
+            return ExceedTableException()
+
+        
+        
+        
         
         if self.jugada == 1:
             self.token = letter
@@ -48,6 +51,8 @@ class Cuatroenlinea():
 
         if self.win =='Yes':
             raise GameOverException()
+        
+        
             
 
         self.board[row1-1][col] = letter
@@ -55,6 +60,16 @@ class Cuatroenlinea():
         self.verify_ver(letter)
         self.verify_incl1()
         self.verify_incl2()
+
+    def change_player(self):
+        if self.jugada % 2 == 0:
+            self.player = 'Player B'
+        else:
+            self.player = 'Player A'
+
+
+
+        
     
         
     def verify_hor(self,letter):
@@ -70,14 +85,15 @@ class Cuatroenlinea():
                     self.win ='Yes'
 
     def verify_ver(self,letter):
-        for roww in range (4):
-            for column in range (8):
+        for column in range (8):
+            for roww in range (4):
+            
 
                 
                 if self.board[roww][column] == self.board[roww+1][column] == self.board[roww+2][column] == self.board[roww+3][column]  == 'X':
                     self.win ='Yes'
                 
-                if self.board[roww][column] == self.board[roww+1][column] == self.board[roww+2][column] == self.board[roww+3][column]  == '0':
+                if self.board[roww-1][column] == self.board[roww][column] == self.board[roww+1][column] == self.board[roww+2][column]  == '0':
                     self.win ='Yes'
 
     def verify_incl1(self):
