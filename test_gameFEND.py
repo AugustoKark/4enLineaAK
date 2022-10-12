@@ -38,6 +38,15 @@ class Test4InLine(unittest.TestCase):
         patched_input.side_effect = ["9", "q"]
         main()
         self.assertEqual(patched_print.call_args_list[3][0][0],0)
+    
+    def test_max_fichas(self, patched_input, patched_print, *args):
+        patched_input.side_effect = ["1", "1", "1", "1", "1", "1", "1", "1", "1", "q"]
+        main()
+        self.assertEqual(patched_print.call_args_list[3][0][0],0)
+        
+
+
+
 
         
     
