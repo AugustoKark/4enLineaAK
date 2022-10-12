@@ -32,7 +32,7 @@ def play(game):
         print("Jugada: ",game.jugada)
 
         if game.win == 'Yes':
-            print("Player {} wins!".format(game.player))
+            print(" {} wins!".format(game.player))
             return False
         print(game.player)
         print(game.win)
@@ -46,9 +46,7 @@ def play(game):
 
     except ValueError:
         print("Valor no valido")
-        
-    except SamePlayerException:
-        print("No puedes jugar con el mismo jugador")
+
         
     except MaxFichasException:
         print("No puedes poner mas fichas en dicha columna")

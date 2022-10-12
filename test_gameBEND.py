@@ -12,6 +12,27 @@ class TestCuatroenlinea(unittest.TestCase):
         self.assertEqual(len(machine.board), 8)
         self.assertEqual(len(machine.board[0]), 8)
     
+    def test_exceedboard(self):
+        machine = Cuatroenlinea()
+        self.assertEqual(len(machine.board), 8)
+        self.assertEqual(len(machine.board[0]), 8)
+        try:
+            machine.set(8,'0')
+        except ExceedTableException:
+            pass
+        self.assertEqual(machine.jugada,0)
+        self.assertEqual(machine.win,'No')
+        self.assertEqual(machine.board ,
+        [['-', '-', '-', '-', '-', '-', '-', '-'],
+        ['-', '-', '-', '-', '-', '-', '-', '-'],
+        ['-', '-', '-', '-', '-', '-', '-', '-'],
+        ['-', '-', '-', '-', '-', '-', '-', '-'],
+        ['-', '-', '-', '-', '-', '-', '-', '-'],
+        ['-', '-', '-', '-', '-', '-', '-', '-'],
+        ['-', '-', '-', '-', '-', '-', '-', '-'],
+        ['-', '-', '-', '-', '-', '-', '-', '-']])
+
+    
     def test_board_view(self):
         machine = Cuatroenlinea()
         self.assertEqual(machine.board ,
