@@ -68,10 +68,10 @@ class Cuatroenlinea():
 
         self.board[row1-1][col] = letter
         self.verify_hor(letter)
-        #self.verify_ver(letter)
+        self.verify_ver(letter)
         self.verify_incl1()
         self.verify_incl2()
-        self.vertical(letter)
+        #self.vertical(letter)
 
    
 
@@ -82,7 +82,7 @@ class Cuatroenlinea():
     def verify_hor(self,letter):
 
         for roww in range (8):
-            for column in range (4):
+            for column in range (5):
 
                 
                 if self.board[roww][column] == self.board[roww][column+1] == self.board[roww][column+2] == self.board[roww][column+3]  == 'X':
@@ -91,19 +91,19 @@ class Cuatroenlinea():
                 if self.board[roww][column] == self.board[roww][column+1] == self.board[roww][column+2] == self.board[roww][column+3]  == '0':
                     self.win ='Yes'
     
-    def vertical(self,letter):
-        for column in range (8):
-            for roww in range (5):
-                if self.board[roww][column-1] == self.board[roww+1][column-1] == self.board[roww+2][column-1] == self.board[roww+3][column-1]  == 'X':
-                    self.win ='Yes'
+    #def vertical(self,letter):
+    #    for column in range (8):
+    #        for roww in range (6):
+    #            if self.board[roww][column-1] == self.board[roww+1][column-1] == self.board[roww+2][column-1] == self.board[roww+3][column-1]  == 'X':
+    #                self.win ='Yes'
 
-                if self.board[roww][column] == self.board[roww+1][column] == self.board[roww+2][column] == self.board[roww+3][column]  == '0':
-                    self.win ='Yes'
+#                if self.board[roww][column] == self.board[roww+1][column] == self.board[roww+2][column] == self.board[roww+3][column]  == '0':
+#                    self.win ='Yes'
 
 
     def verify_ver(self,letter):
         for column in range (8):
-            for roww in range (4):
+            for roww in range (5):
             
 
                 
@@ -115,7 +115,7 @@ class Cuatroenlinea():
 
     def verify_incl1(self):
         for roww in range (5):
-            for column in range (4,8):
+            for column in range (8):
                 
                 
                

@@ -323,6 +323,32 @@ class TestCuatroenlinea(unittest.TestCase):
         ['-', '-', '-', '0', '-', 'X', '0', 'X'], 
         ['-', '-', '-', '0', 'X', '0', 'X', '0']])  
 
+    def test_victoryincl3(self):
+        machine = Cuatroenlinea()
+        
+        machine.set(0,'X')
+        machine.set(1,'0')
+        machine.set(1,'X')
+        machine.set(2,'0')
+        machine.set(3,'X')
+        machine.set(2,'0')
+        machine.set(2,'X')
+        machine.set(3,'0')
+        machine.set(3,'X')
+        machine.set(4,'0')
+        machine.set(3,'X')
+        self.assertEqual(machine.jugada,11)
+        self.assertEqual(machine.win,'Yes')
+        self.assertEqual(machine.board ,
+        [['-', '-', '-', '-', '-', '-', '-', '-'],
+        ['-', '-', '-', '-', '-', '-', '-', '-'], 
+        ['-', '-', '-', '-', '-', '-', '-', '-'], 
+        ['-', '-', '-', '-', '-', '-', '-', '-'], 
+        ['-', '-', '-', 'X', '-', '-', '-', '-'], 
+        ['-', '-', 'X', 'X', '-', '-', '-', '-'], 
+        ['-', 'X', '0', '0', '-', '-', '-', '-'], 
+        ['X', '0', '0', 'X', '0', '-', '-', '-']])  
+
 
 
 if __name__ == '__main__':

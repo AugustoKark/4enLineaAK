@@ -21,9 +21,7 @@ Y = 400
 display_surface = pygame.display.set_mode((X, Y))
 pygame.display.set_caption('Show Text')
 font = pygame.font.Font('freesansbold.ttf', 32)
-text = font.render('GeeksForGeeks', True, green, blue)
-textRect = text.get_rect()
-textRect.center =(600,600)
+
 ###################################################  
 DIMENSION_VENTANA = [800,800]
 pantalla = pygame.display.set_mode(DIMENSION_VENTANA)
@@ -54,9 +52,11 @@ while not hecho:
             if iter %2 ==0:
             
                 letter='X'
+                machine.player='Player B'
             else:
             
                 letter = '0' 
+                machine.player='Player A'
 
         
         
@@ -80,15 +80,14 @@ while not hecho:
                               LARGO,
                               ALTO])
     if machine.win =='Yes':
-            display_surface.blit(text, textRect)            
-            hecho=False
-            print("The winner is: ", machine.player)           
-            print('Ganaste')
-            pygame.quit()
-            break   
-
-     
-    reloj.tick(60)
+        text = font.render('{} wins'.format(machine.player), True, BLANCO, ROJO,)
+        textRect = text.get_rect()
+        textRect.center =(600,100)
+        pantalla.blit(text, textRect)
+        pygame.display.update()
+        pygame.time.wait(3000)
+        pygame.quit()
+        quit()
     pygame.display.flip()
-     
+    reloj.tick(60)
 pygame.quit()
