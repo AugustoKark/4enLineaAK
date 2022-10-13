@@ -27,7 +27,7 @@ def play(game):
 
         if int(colum_ingreso)>= 8:
             
-            print("No se pueden ingresar mas fichas en esta columna")
+           
             raise ExceedTableException()
 
         
